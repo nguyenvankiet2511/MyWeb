@@ -2,6 +2,9 @@ from SaleApp.models import Category, Product, User
 from SaleApp import app, db, admin
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import BaseView, expose
+from flask_login import current_user, login_user
+
+
 
 class AboutUsView(BaseView):
     @expose("/")
@@ -11,7 +14,9 @@ class Static_Report(BaseView):
     @expose("/")
     def index(self):
         return self.render('admin/statistic_report.html')
-
+# class AuthAdmin(ModelView):
+#     def is_accessible(self):
+#         return current_user.
 class ProductView(ModelView):
     can_view_details = True
     edit_modal = True
